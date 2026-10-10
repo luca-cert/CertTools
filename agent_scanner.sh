@@ -979,8 +979,7 @@ except Exception:
         # /chat
         # ------------------------------------------------------------
         #
-        local chat_response=""
-        local chat_pretty=""
+        chat_response=""
         chat_response="$(
             curl -sS \
                 --connect-timeout "$CONNECT_TIMEOUT" \
@@ -992,13 +991,16 @@ except Exception:
                 2>/dev/null
         )"
 
-        if chat_pretty="$(
-            printf '%s' "$chat_response" |
-                python3 -m json.tool 2>/dev/null
-        ); then
-            :
-        else
-            chat_pretty="$chat_response"
+        chat_pretty=""
+        if [[ -n "$chat_response" ]]; then
+            chat_pretty="$(
+                printf '%s' "$chat_response" |
+                    python3 -m json.tool 2>/dev/null
+            )" || chat_pretty=""
+        
+            if [[ -z "$chat_pretty" ]]; then
+                chat_pretty="$chat_response"
+            fi
         fi
 
         #
