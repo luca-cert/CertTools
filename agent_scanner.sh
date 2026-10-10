@@ -979,7 +979,8 @@ except Exception:
         # /chat
         # ------------------------------------------------------------
         #
-        chat_response=""
+        local chat_response=""
+        local chat_pretty=""
         chat_response="$(
             curl -sS \
                 --connect-timeout "$CONNECT_TIMEOUT" \
