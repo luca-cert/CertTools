@@ -1085,4 +1085,3 @@ done < "$NMAP_OUT"
 echo
 echo "Scan complete."
 echo "Results written to: $OUTPUT_FILE"
-
