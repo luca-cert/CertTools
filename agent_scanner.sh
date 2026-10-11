@@ -932,7 +932,7 @@ while IFS= read -r line; do
         if health_pretty="$(
             printf '%s' "$health_response" |
                 python3 -m json.tool 2>/dev/null
-        ); then
+        )"; then
             :
         else
             health_pretty="$health_response"
