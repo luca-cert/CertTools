@@ -987,7 +987,7 @@ except Exception:
                 -X POST \
                 "$chat_url" \
                 -H "Content-Type: application/json" \
-                -d '{"message":"Hi, what do you do?"}' \
+                -d '{"message":"Hi, how can you help me?"}' \
                 2>/dev/null
         )"
 
